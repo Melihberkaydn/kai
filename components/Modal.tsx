@@ -13,8 +13,11 @@ export default function Modal({ onClose = () => {} }) {
           </h1>
 
           <div className="flex flex-col overflow-scroll max-h-52 mb-4">
-            <p>Count: 471 Male</p>
-            <p>Ratio: 0.025536</p>
+            <p className="mb-4">
+              For the Action Genre male characters dominates.{" "}
+              <b>Think about having a female lead!</b>{" "}
+            </p>
+            <p>Ratio: 0.725536</p>
             <p>Sentiment Score male: 0.120000</p>
             <p>Sentiment score female: 0.056789</p>
           </div>
