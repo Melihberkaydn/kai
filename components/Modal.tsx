@@ -13,17 +13,10 @@ export default function Modal({ onClose = () => {} }) {
           </h1>
 
           <div className="flex flex-col overflow-scroll max-h-52 mb-4">
-            Flank kielbasa pancetta, ball tip ullamco incididunt turducken.
-            Culpa shoulder t-bone duis shank in mollit landjaeger burgdoggen
-            tempor lorem ipsum consectetur laboris. In beef ribs sausage nulla.
-            Irure alcatra chuck in, duis strip steak esse chicken. Short ribs
-            salami ham sint proident buffalo chuck occaecat magna cupidatat
-            alcatra tongue.Flank kielbasa pancetta, ball tip ullamco incididunt
-            turducken. Culpa shoulder t-bone duis shank in mollit landjaeger
-            burgdoggen tempor lorem ipsum consectetur laboris. In beef ribs
-            sausage nulla. Irure alcatra chuck in, duis strip steak esse
-            chicken. Short ribs salami ham sint proident buffalo chuck occaecat
-            magna cupidatat alcatra tongue."
+            <p>Count: 471 Male</p>
+            <p>Ratio: 0.025536</p>
+            <p>Sentiment Score male: 0.120000</p>
+            <p>Sentiment score female: 0.056789</p>
           </div>
         </div>
         <div className="flex text-center items-center justify-center">
