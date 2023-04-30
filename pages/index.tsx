@@ -42,11 +42,11 @@ const Home: NextPage = () => {
       setIsAction(false);
       if (bias == 0) {
         setIsNegative(false);
-        var script = mus_bias_scripts[getRandomInt(0, 3)];
+        var script = mus_unbias_scripts[getRandomInt(0, 3)];
         return script;
       } else {
         setIsNegative(true);
-        var script = mus_unbias_scripts[getRandomInt(0, 3)];
+        var script = mus_bias_scripts[getRandomInt(0, 3)];
         return script;
       }
     } else if (
@@ -56,11 +56,11 @@ const Home: NextPage = () => {
     ) {
       if (bias == 0) {
         setIsNegative(false);
-        var script = act_bias_scripts[getRandomInt(0, 3)];
+        var script = act_unbias_scripts[getRandomInt(0, 3)];
         return script;
       } else {
         setIsNegative(true);
-        var script = act_unbias_scripts[getRandomInt(0, 3)];
+        var script = act_bias_scripts[getRandomInt(0, 3)];
         return script;
       }
     } else {
