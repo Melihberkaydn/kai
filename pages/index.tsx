@@ -9,6 +9,7 @@ import Github from "../components/GitHub";
 import Header from "../components/Header";
 import LoadingDots from "../components/LoadingDots";
 import Modal from "../components/Modal";
+
 import {
   act_bias_scripts,
   act_unbias_scripts,
@@ -20,6 +21,7 @@ import {
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(false);
   const [isNegative, setIsNegative] = useState(true);
+  const [isAction, setIsAction] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [prompt, setPrompt] = useState("");
   const [vibe, setVibe] = useState<VibeType>("GPT-2");
@@ -37,6 +39,7 @@ const Home: NextPage = () => {
       prompt ==
       "Create a short movie teaser including a description of the main character for a Musical movie."
     ) {
+      setIsAction(false);
       if (bias == 0) {
         setIsNegative(false);
         var script = mus_bias_scripts[getRandomInt(0, 3)];
@@ -47,8 +50,9 @@ const Home: NextPage = () => {
         return script;
       }
     } else if (
+      (setIsAction(true),
       prompt ==
-      "Create a short movie teaser including a description of the main character for a Action movie."
+        "Create a short movie teaser including a description of the main character for a Action movie.")
     ) {
       if (bias == 0) {
         setIsNegative(false);
@@ -60,6 +64,7 @@ const Home: NextPage = () => {
         return script;
       }
     } else {
+      setIsAction(false);
       return "Try Again...";
     }
   }
@@ -215,6 +220,7 @@ const Home: NextPage = () => {
               .
             </p>
           </div>
+
           <textarea
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
@@ -222,7 +228,12 @@ const Home: NextPage = () => {
             className="w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black my-5"
             placeholder={"Please enter a prompt that describes the context."}
           />
-
+          <p className="text-slate-500 my-3">
+            <i>
+              "Create a short movie teaser including a description of the main
+              character for a Action movie."
+            </i>
+          </p>
           {!loading && (
             <button
               className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-10 mt-8 hover:bg-black/80 w-full"
@@ -290,7 +301,7 @@ const Home: NextPage = () => {
           )}
         </div>
       </main>
-      {isModalOpen && <Modal onClose={handleOnClose} />}
+      {isModalOpen && <Modal isAction={isAction} onClose={handleOnClose} />}
       <Footer />
     </div>
   );

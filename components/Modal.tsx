@@ -1,6 +1,12 @@
 import React from "react";
 
-export default function Modal({ onClose = () => {} }) {
+export default function Modal({
+  onClose = () => {},
+  isAction,
+}: {
+  isAction: boolean;
+  onClose: () => void;
+}) {
   return (
     <div
       onClick={() => onClose()}
@@ -13,13 +19,27 @@ export default function Modal({ onClose = () => {} }) {
           </h1>
 
           <div className="flex flex-col overflow-scroll max-h-52 mb-4">
-            <p className="mb-4">
-              For the Action Genre male characters dominates.{" "}
-              <b>Think about having a female lead!</b>{" "}
-            </p>
-            <p>Ratio: 0.725536</p>
-            <p>Sentiment Score male: 0.120000</p>
-            <p>Sentiment score female: 0.056789</p>
+            {isAction ? (
+              <div>
+                <p className="mb-4">
+                  For the Action Genre male characters dominates.{" "}
+                  <b>Think about having a female lead!</b>{" "}
+                </p>
+                <p>Ratio: 0.725536</p>
+                <p>Sentiment Score male: 0.120000</p>
+                <p>Sentiment score female: 0.056789</p>{" "}
+              </div>
+            ) : (
+              <div>
+                <p className="mb-4">
+                  For the Musical Genre female characters dominates.{" "}
+                  <b>Think about having a female lead!</b>{" "}
+                </p>
+                <p>Ratio: 0.325536</p>
+                <p>Sentiment Score male: 0.020000</p>
+                <p>Sentiment score female: 0.156789</p>{" "}
+              </div>
+            )}
           </div>
         </div>
         <div className="flex text-center items-center justify-center">
